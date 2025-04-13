@@ -57,15 +57,41 @@ export default function Home() {
       <div style={{ height: '100vh', position: 'relative' }}>
         <Hyperspeed
           effectOptions={{
+            onSpeedUp: () => { },
+            onSlowDown: () => { },
+            distortion: 'mountainDistortion',
+            length: 400,
+            roadWidth: 9,
+            islandWidth: 2,
+            lanesPerRoad: 3,
+            fov: 90,
+            fovSpeedUp: 150,
+            speedUp: 2,
+            carLightsFade: 0.4,
+            totalSideLightSticks: 50,
+            lightPairsPerRoadWay: 50,
+            shoulderLinesWidthPercentage: 0.05,
+            brokenLinesWidthPercentage: 0.1,
+            brokenLinesLengthPercentage: 0.5,
+            lightStickWidth: [0.12, 0.5],
+            lightStickHeight: [1.3, 1.7],
+        
+            movingAwaySpeed: [60, 80],
+            movingCloserSpeed: [-120, -160],
+            carLightsLength: [400 * 0.05, 400 * 0.15],
+            carLightsRadius: [0.05, 0.14],
+            carWidthPercentage: [0.3, 0.5],
+            carShiftX: [-0.2, 0.2],
+            carFloorSeparation: [0.05, 1],
             colors: {
               roadColor: 0x080808,
               islandColor: 0x0a0a0a,
               background: 0x000000,
-              shoulderLines: 0xFFFFFF,
-              brokenLines: 0xFFFFFF,
-              leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
-              rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
-              sticks: 0x03B3C3,
+              shoulderLines: 0x131318,
+              brokenLines: 0x131318,
+              leftCars: [0xff102a, 0xEB383E, 0xff102a],
+              rightCars: [0xdadafa, 0xBEBAE3, 0x8F97E4],
+              sticks: 0xdadafa,
             }
           }}
         />
@@ -82,7 +108,7 @@ export default function Home() {
             <SplitText
               text="Yuichiro Kabutan"
               className="text-9xl font-bold text-white"
-              delay={150}
+              delay={100}
               animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
               animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
               threshold={0.2}
@@ -94,7 +120,7 @@ export default function Home() {
             <SplitText
               text=" Student / Engineer "
               className="text-6xl text-white/90"
-              delay={150}
+              delay={100}
               animationFrom={{ opacity: 0, transform: 'translate3d(0,30px,0)' }}
               animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
               threshold={0.2}
@@ -104,7 +130,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Container size="3" className="py-8">
+      <Container size="3" className="py-8" style={{ marginTop: '2rem' }}>
         <Flex direction="column" gap="6">
           {/* プロフィールセクション */}
           <MotionCard
