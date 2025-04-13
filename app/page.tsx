@@ -5,6 +5,7 @@ import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Hyperspeed from '@Hyperspeed';
 import SplitText from '@blocks/TextAnimations/SplitText/SplitText';
+import DecryptedText from '@blocks/TextAnimations/DecryptedText/DecryptedText';
 import Image from 'next/image';
 
 const MotionCard = motion(Card);
@@ -72,11 +73,11 @@ export default function Home() {
 
   const hobbies = [
     'ツーリング',
+    '料理',
     'Vaundyライブ参戦',
     '美味しいコーヒーを探してカフェ巡り',
-    '旅行(最近は北海道、沖縄に行きました)',
-    'アニメ(呪術、ヒロアカ、水星の魔女など様々)',
-    '料理'
+    '旅行（最近は北海道、沖縄に行きました）',
+    'アニメ（呪術、ヒロアカ、水星の魔女など様々）',
   ];
 
   const containerVariants = {
@@ -194,14 +195,26 @@ export default function Home() {
               border: '1px solid rgba(255, 255, 255, 0.1)'
             }}
           >
-            <Flex direction="column" gap="4">
-              <MotionHeading size="8" variants={itemVariants} style={{ color: 'white' }}>
-                株丹優一郎
+            <Flex direction="column">
+              <MotionHeading size="6" mb="4" variants={itemVariants} style={{ color: 'white' }}>
+                <DecryptedText
+                  text="株丹優一郎"
+                  speed={150}
+                  maxIterations={20}
+                  animateOn="view"
+                  revealDirection="center"
+                />
               </MotionHeading>
-              <MotionText size="3" variants={itemVariants} style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-                立命館大学4年生<br />
-                情報理工学部情報理工学科
-              </MotionText>
+              <motion.div variants={itemVariants}>
+                <DecryptedText
+                  text="立命館大学4年生 情報理工学部情報理工学科"
+                  speed={150}
+                  maxIterations={20}
+                  animateOn="view"
+                  revealDirection="start"
+                  className="text-lg text-white/90"
+                />
+              </motion.div>
               <motion.div variants={itemVariants}>
                 <Flex gap="4">
                   <Link href="https://x.com/kabu0913" target="_blank">
