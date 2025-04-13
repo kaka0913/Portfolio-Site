@@ -5,6 +5,7 @@ import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Hyperspeed from '@Hyperspeed';
 import SplitText from '@blocks/TextAnimations/SplitText/SplitText';
+import Image from 'next/image';
 
 const MotionCard = motion(Card);
 const MotionHeading = motion(Heading);
@@ -26,7 +27,20 @@ export default function Home() {
     }
   ];
 
-  const skills = ['Swift', 'Flutter', 'GO'];
+  const skills = [
+    {
+      name: 'Swift',
+      icon: '/icons/swift.png',
+    },
+    {
+      name: 'Flutter',
+      icon: '/icons/flutter.png',
+    },
+    {
+      name: 'GO',
+      icon: '/icons/go.png',
+    }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -188,7 +202,7 @@ export default function Home() {
             <Flex gap="2" wrap="wrap">
               {skills.map((skill, index) => (
                 <motion.div
-                  key={skill}
+                  key={skill.name}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -197,7 +211,17 @@ export default function Home() {
                     background: 'rgba(255, 255, 255, 0.1)',
                     border: '1px solid rgba(255, 255, 255, 0.2)'
                   }}>
-                    <Text size="2" style={{ color: 'white' }}>{skill}</Text>
+                    <Flex align="center" gap="2">
+                      <div style={{ width: '24px', height: '24px', position: 'relative' }}>
+                        <Image
+                          src={skill.icon}
+                          alt={skill.name}
+                          fill
+                          style={{ objectFit: 'contain' }}
+                        />
+                      </div>
+                      <Text size="2" style={{ color: 'white' }}>{skill.name}</Text>
+                    </Flex>
                   </Card>
                 </motion.div>
               ))}
@@ -226,10 +250,10 @@ export default function Home() {
                   variants={itemVariants}
                   whileHover={{ x: 10 }}
                 >
-                  <Box>
-                    <Text weight="bold" style={{ color: 'white' }}>{item.date}</Text>
+                  <Flex align="center" gap="1">
+                    <Text weight="bold" style={{ color: 'white', minWidth: '100px' }}>{item.date}</Text>
                     <Text style={{ color: 'rgba(255, 255, 255, 0.9)' }}>{item.content}</Text>
-                  </Box>
+                  </Flex>
                 </motion.div>
               ))}
             </Flex>
