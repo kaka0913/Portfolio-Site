@@ -4,6 +4,7 @@ import { Container, Heading, Text, Card, Flex, Link, Box } from '@radix-ui/theme
 import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Hyperspeed from '@Hyperspeed';
+import SplitText from '@blocks/TextAnimations/SplitText/SplitText';
 
 const MotionCard = motion(Card);
 const MotionHeading = motion(Heading);
@@ -47,6 +48,10 @@ export default function Home() {
     }
   };
 
+  const handleAnimationComplete = () => {
+    console.log('Animation completed!');
+  };
+
   return (
     <>
       <div style={{ height: '100vh', position: 'relative' }}>
@@ -70,32 +75,32 @@ export default function Home() {
           left: '50%',
           transform: 'translate(-50%, -50%)',
           textAlign: 'center',
-          width: '100%'
+          width: '100%',
+          fontSize: '12rem'
         }}>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{
-              fontSize: '4rem',
-              color: 'white',
-              marginBottom: '1rem',
-              fontWeight: 'bold'
-            }}
-          >
-            Yuichiro Kabutan
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{
-              fontSize: '1.5rem',
-              color: 'rgba(255, 255, 255, 0.9)'
-            }}
-          >
-            Engineer / Developer / Student
-          </motion.p>
+          <div style={{ fontSize: '4rem', marginBottom: '2rem' }}>
+            <SplitText
+              text="Yuichiro Kabutan"
+              className="text-9xl font-bold text-white"
+              delay={150}
+              animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+              animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+              threshold={0.2}
+              rootMargin="-50px"
+              onLetterAnimationComplete={handleAnimationComplete}
+            />
+          </div>
+          <div style={{ fontSize: '2rem' }}>
+            <SplitText
+              text=" Student / Engineer "
+              className="text-6xl text-white/90"
+              delay={150}
+              animationFrom={{ opacity: 0, transform: 'translate3d(0,30px,0)' }}
+              animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+              threshold={0.2}
+              rootMargin="-50px"
+            />
+          </div>
         </div>
       </div>
 
