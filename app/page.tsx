@@ -1,103 +1,210 @@
-import Image from "next/image";
+'use client';
+
+import { Container, Heading, Text, Card, Flex, Link, Box } from '@radix-ui/themes';
+import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
+import { motion } from 'framer-motion';
+import Hyperspeed from '@Hyperspeed';
+
+const MotionCard = motion(Card);
+const MotionHeading = motion(Heading);
+const MotionText = motion(Text);
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const news = [
+    {
+      date: '2025年4月',
+      content: 'Try! Swift 2025年にスタッフとして参加しました'
+    },
+    {
+      date: '2025年3月',
+      content: '内定者インターンの就業開始'
+    },
+    {
+      date: '2025年2月',
+      content: '学生IT団体watnowの副代表を退任'
+    }
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const skills = ['Swift', 'Flutter', 'GO'];
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0
+    }
+  };
+
+  return (
+    <>
+      <div style={{ height: '100vh', position: 'relative' }}>
+        <Hyperspeed
+          effectOptions={{
+            colors: {
+              roadColor: 0x080808,
+              islandColor: 0x0a0a0a,
+              background: 0x000000,
+              shoulderLines: 0xFFFFFF,
+              brokenLines: 0xFFFFFF,
+              leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
+              rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
+              sticks: 0x03B3C3,
+            }
+          }}
+        />
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          textAlign: 'center',
+          width: '100%'
+        }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              fontSize: '4rem',
+              color: 'white',
+              marginBottom: '1rem',
+              fontWeight: 'bold'
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Yuichiro Kabutan
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{
+              fontSize: '1.5rem',
+              color: 'rgba(255, 255, 255, 0.9)'
+            }}
           >
-            Read our docs
-          </a>
+            Engineer / Developer / Student
+          </motion.p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      <Container size="3" className="py-8">
+        <Flex direction="column" gap="6">
+          {/* プロフィールセクション */}
+          <MotionCard
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            style={{ 
+              background: 'rgba(0, 0, 0, 0.7)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}
+          >
+            <Flex direction="column" gap="4">
+              <MotionHeading size="8" variants={itemVariants} style={{ color: 'white' }}>
+                株丹優一郎
+              </MotionHeading>
+              <MotionText size="3" variants={itemVariants} style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                立命館大学4年生<br />
+                情報理工学部情報理工学科
+              </MotionText>
+              <motion.div variants={itemVariants}>
+                <Flex gap="4">
+                  <Link href="https://x.com/kabu0913" target="_blank">
+                    <Flex gap="2" align="center" style={{ color: 'white' }}>
+                      <TwitterLogoIcon width="20" height="20" />
+                      <Text>X (Twitter)</Text>
+                    </Flex>
+                  </Link>
+                  <Link href="https://github.com/kaka0913" target="_blank">
+                    <Flex gap="2" align="center" style={{ color: 'white' }}>
+                      <GitHubLogoIcon width="20" height="20" />
+                      <Text>GitHub</Text>
+                    </Flex>
+                  </Link>
+                </Flex>
+              </motion.div>
+            </Flex>
+          </MotionCard>
+
+          {/* スキルセクション */}
+          <MotionCard
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            transition={{ delay: 0.3 }}
+            style={{ 
+              background: 'rgba(0, 0, 0, 0.7)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}
+          >
+            <MotionHeading size="6" mb="4" variants={itemVariants} style={{ color: 'white' }}>
+              技術スタック
+            </MotionHeading>
+            <Flex gap="2" wrap="wrap">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Card style={{ 
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)'
+                  }}>
+                    <Text size="2" style={{ color: 'white' }}>{skill}</Text>
+                  </Card>
+                </motion.div>
+              ))}
+            </Flex>
+          </MotionCard>
+
+          {/* ニュースセクション */}
+          <MotionCard
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            transition={{ delay: 0.6 }}
+            style={{ 
+              background: 'rgba(0, 0, 0, 0.7)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}
+          >
+            <MotionHeading size="6" mb="4" variants={itemVariants} style={{ color: 'white' }}>
+              News
+            </MotionHeading>
+            <Flex direction="column" gap="3">
+              {news.map((item, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ x: 10 }}
+                >
+                  <Box>
+                    <Text weight="bold" style={{ color: 'white' }}>{item.date}</Text>
+                    <Text style={{ color: 'rgba(255, 255, 255, 0.9)' }}>{item.content}</Text>
+                  </Box>
+                </motion.div>
+              ))}
+            </Flex>
+          </MotionCard>
+        </Flex>
+      </Container>
+    </>
   );
 }

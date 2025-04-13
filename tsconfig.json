@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@blocks/*": ["./src/blocks/*"],
+      "@Hyperspeed": ["./src/blocks/Backgrounds/Hyperspeed/Hyperspeed"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
