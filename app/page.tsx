@@ -15,16 +15,44 @@ export default function Home() {
   const news = [
     {
       date: '2025年4月',
-      content: 'Try! Swift 2025年にスタッフとして参加しました'
+      content: 'Try! Swift 2025年にスタッフとして参加'
     },
     {
       date: '2025年3月',
-      content: '内定者インターンの就業開始'
+      content: '内定者インターン就業開始'
     },
     {
       date: '2025年2月',
       content: '学生IT団体watnowの副代表を退任'
-    }
+    },
+    {
+      date: '2024年11月',
+      content: 'watnow秋プロジェクト最優秀賞受賞'
+    },
+    {
+      date: '2024年8月',
+      content: 'iOSDC Japan 2024に参加'
+    },
+    {
+      date: '2024年2月',
+      content: '学生IT団体watnowの副代表に就任'
+    },
+    {
+      date: '2023年12月',
+      content: '技育CAMPアドバンスvol.4 副大賞受賞'
+    },
+    {
+      date: '2023年10月',
+      content: '技育キャンプキャラバンハッカソン大阪 優秀賞受賞'
+    },
+    {
+      date: '2023年8月',
+      content: '関西ビギナーズハッカソンvol2 最優秀賞受賞'
+    },
+    {
+      date: '2023年4月',
+      content: '学生IT団体watnowに参加'
+    },
   ];
 
   const skills = [
@@ -191,7 +219,7 @@ export default function Home() {
             variants={containerVariants}
             transition={{ delay: 0.3 }}
             style={{ 
-              background: 'rgba(0, 0, 0, 0.7)',
+              background: 'rgba(17, 17, 19, 0.7)',
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(255, 255, 255, 0.1)'
             }}

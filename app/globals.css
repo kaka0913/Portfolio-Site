@@ -3,11 +3,49 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-color: #111113;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--background-color);
 }
 
 body {
+  background-color: var(--background-color);
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  min-height: 100vh;
+}
+
+#__next {
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+/* スクロールバーのスタイリング */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background-color);
+}
+
+/* バウンス効果時の背景色 */
+@supports (-webkit-touch-callout: none) {
+  body {
+    height: -webkit-fill-available;
+  }
 }

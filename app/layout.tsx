@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={inter.className} style={{ margin: 0, padding: 0 }}>
+      <body className={inter.className} style={{ margin: 0, padding: 0, backgroundColor: '#111113' }}>
         <Theme appearance="dark" accentColor="blue" radius="medium">
           {children}
         </Theme>
