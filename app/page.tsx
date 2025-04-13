@@ -70,6 +70,15 @@ export default function Home() {
     }
   ];
 
+  const hobbies = [
+    'ツーリング',
+    'Vaundyライブ参戦',
+    '美味しいコーヒーを探してカフェ巡り',
+    '旅行(最近は北海道、沖縄に行きました)',
+    'アニメ(呪術、ヒロアカ、水星の魔女など様々)',
+    '料理'
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -180,7 +189,7 @@ export default function Home() {
             animate="visible"
             variants={containerVariants}
             style={{ 
-              background: 'rgba(0, 0, 0, 0.7)',
+              background: 'rgba(17, 17, 19, 0.7)',
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(255, 255, 255, 0.1)'
             }}
@@ -263,7 +272,7 @@ export default function Home() {
             variants={containerVariants}
             transition={{ delay: 0.6 }}
             style={{ 
-              background: 'rgba(0, 0, 0, 0.7)',
+              background: 'rgba(17, 17, 19, 0.7)',
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(255, 255, 255, 0.1)'
             }}
@@ -278,10 +287,40 @@ export default function Home() {
                   variants={itemVariants}
                   whileHover={{ x: 10 }}
                 >
-                  <Flex align="center" gap="1">
+                  <Flex align="center" gap="6">
                     <Text weight="bold" style={{ color: 'white', minWidth: '100px' }}>{item.date}</Text>
                     <Text style={{ color: 'rgba(255, 255, 255, 0.9)' }}>{item.content}</Text>
                   </Flex>
+                </motion.div>
+              ))}
+            </Flex>
+          </MotionCard>
+
+          {/* 趣味セクション */}
+          <MotionCard
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            transition={{ delay: 0.9 }}
+            style={{ 
+              background: 'rgba(17, 17, 19, 0.7)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}
+          >
+            <MotionHeading size="6" mb="4" variants={itemVariants} style={{ color: 'white' }}>
+              趣味
+            </MotionHeading>
+            <Flex direction="column" gap="3">
+              {hobbies.map((hobby, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ x: 10 }}
+                >
+                  <Text style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                    • {hobby}
+                  </Text>
                 </motion.div>
               ))}
             </Flex>
