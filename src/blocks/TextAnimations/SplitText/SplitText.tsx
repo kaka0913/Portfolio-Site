@@ -2,8 +2,8 @@
 	Installed from https://reactbits.dev/ts/default/
 */
 
+import React, { useEffect, useRef, useState } from "react";
 import { useSprings, animated, SpringValue } from "@react-spring/web";
-import { useEffect, useRef, useState, MutableRefObject } from "react";
 
 interface SplitTextProps {
   text?: string;
@@ -17,6 +17,8 @@ interface SplitTextProps {
   textAlign?: "left" | "right" | "center" | "justify" | "initial" | "inherit";
   onLetterAnimationComplete?: () => void;
 }
+
+const AnimatedSpan = animated('span');
 
 const SplitText: React.FC<SplitTextProps> = ({
   text = "",
@@ -100,7 +102,7 @@ const SplitText: React.FC<SplitTextProps> = ({
               letterIndex;
 
             return (
-              <animated.span
+              <AnimatedSpan
                 key={index}
                 style={{
                   ...springs[index],
@@ -109,7 +111,7 @@ const SplitText: React.FC<SplitTextProps> = ({
                 }}
               >
                 {letter}
-              </animated.span>
+              </AnimatedSpan>
             );
           })}
           <span style={{ display: "inline-block", width: "0.3em" }}>

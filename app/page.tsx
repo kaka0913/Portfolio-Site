@@ -11,7 +11,6 @@ import Image from 'next/image';
 
 const MotionCard = motion(Card);
 const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
 
 export default function Home() {
   const news = [
@@ -262,7 +261,7 @@ export default function Home() {
               技術スタック
             </MotionHeading>
             <Flex gap="2" wrap="wrap">
-              {skills.map((skill, index) => (
+              {skills.map((skill) => (
                 <motion.div
                   key={skill.name}
                   variants={itemVariants}
