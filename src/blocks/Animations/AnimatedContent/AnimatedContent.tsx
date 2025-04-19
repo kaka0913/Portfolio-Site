@@ -2,83 +2,68 @@
 	Installed from https://reactbits.dev/ts/default/
 */
 
-import { useRef, useEffect, useState, ReactNode } from "react";
-import { useSpring, animated, SpringConfig } from "@react-spring/web";
+import React, { useEffect, useRef, ReactNode } from "react";
+import { useSpring, animated } from "@react-spring/web";
 
 interface AnimatedContentProps {
   children: ReactNode;
-  distance?: number;
-  direction?: "vertical" | "horizontal";
-  reverse?: boolean;
-  config?: SpringConfig;
-  initialOpacity?: number;
-  animateOpacity?: boolean;
-  scale?: number;
   threshold?: number;
+  rootMargin?: string;
+  animationFrom?: { opacity: number; transform: string };
+  animationTo?: { opacity: number; transform: string };
   delay?: number;
+  onAnimationComplete?: () => void;
 }
 
 const AnimatedContent: React.FC<AnimatedContentProps> = ({
   children,
-  distance = 100,
-  direction = "vertical",
-  reverse = false,
-  config = { tension: 50, friction: 25 },
-  initialOpacity = 0,
-  animateOpacity = true,
-  scale = 1,
   threshold = 0.1,
+  rootMargin = "-100px",
+  animationFrom = { opacity: 0, transform: "translate3d(0,40px,0)" },
+  animationTo = { opacity: 1, transform: "translate3d(0,0,0)" },
   delay = 0,
+  onAnimationComplete,
 }) => {
-  const [inView, setInView] = useState(false);
-  const ref = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [styles, api] = useSpring(() => ({
+    from: animationFrom,
+    config: { mass: 1, tension: 180, friction: 12 },
+  }));
 
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          observer.unobserve(element);
-          setTimeout(() => {
-            setInView(true);
-          }, delay);
+          api.start({
+            to: animationTo,
+            delay,
+            onRest: () => {
+              if (onAnimationComplete) {
+                onAnimationComplete();
+              }
+            },
+          });
+          if (containerRef.current) {
+            observer.unobserve(containerRef.current);
+          }
         }
       },
-      { threshold },
+      { threshold, rootMargin }
     );
 
-    observer.observe(element);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
 
     return () => observer.disconnect();
-  }, [threshold, delay]);
+  }, [api, animationTo, delay, onAnimationComplete, rootMargin, threshold]);
 
-  const directions: Record<"vertical" | "horizontal", string> = {
-    vertical: "Y",
-    horizontal: "X",
-  };
-
-  const springProps = useSpring({
-    from: {
-      transform: `translate${directions[direction]}(${
-        reverse ? `-${distance}px` : `${distance}px`
-      }) scale(${scale})`,
-      opacity: animateOpacity ? initialOpacity : 1,
-    },
-    to: inView
-      ? {
-          transform: `translate${directions[direction]}(0px) scale(1)`,
-          opacity: 1,
-        }
-      : undefined,
-    config,
-  });
+  const Container = animated('div');
 
   return (
-    <animated.div ref={ref} style={springProps}>
+    <Container ref={containerRef} style={styles}>
       {children}
-    </animated.div>
+    </Container>
   );
 };
 

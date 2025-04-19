@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
 /*
 	Installed from https://reactbits.dev/ts/default/
@@ -21,7 +20,17 @@ interface SplitTextProps {
   onLetterAnimationComplete?: () => void;
 }
 
-const AnimatedSpan = animated('span');
+interface AnimatedSpanProps {
+  style: {
+    transform: SpringValue<string>;
+    opacity: SpringValue<number>;
+    display?: string;
+    willChange?: string;
+  };
+  children: React.ReactNode;
+}
+
+const AnimatedSpan = animated.span as React.FC<AnimatedSpanProps>;
 
 const SplitText: React.FC<SplitTextProps> = ({
   text = "",
