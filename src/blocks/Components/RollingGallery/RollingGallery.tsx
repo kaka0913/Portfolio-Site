@@ -2,6 +2,8 @@
 	Installed from https://reactbits.dev/ts/default/
 */
 
+'use client';
+
 import React, { useEffect, useRef, useState } from "react";
 import {
   motion,
@@ -12,20 +14,43 @@ import {
 } from "framer-motion";
 import "./RollingGallery.css";
 
+const IMGS: string[] = [
+  '/images/IMG_8487.png',
+  '/images/IMG_9108.png',
+  '/images/IMG_9119.png',
+  '/images/IMG_9213.png',
+  '/images/IMG_9353.png',
+  '/images/IMG_9413.png',
+  '/images/IMG_9542.png',
+  '/images/IMG_9617.png',
+];
+
 interface RollingGalleryProps {
   autoplay?: boolean;
   pauseOnHover?: boolean;
-  images: string[];
+  images?: string[];
 }
 
 const RollingGallery: React.FC<RollingGalleryProps> = ({
   autoplay = false,
   pauseOnHover = false,
-  images,
+  images = [],
 }) => {
-  const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(
-    window.innerWidth <= 640,
-  );
+  // Use default images if none are provided
+  images = IMGS;
+  const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(false);
+
+  useEffect(() => {
+    // クライアントサイドでのみwindow.innerWidthを参照
+    setIsScreenSizeSm(window.innerWidth <= 640);
+
+    const handleResize = () => {
+      setIsScreenSizeSm(window.innerWidth <= 640);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // 3D geometry calculations
   const cylinderWidth: number = isScreenSizeSm ? 1100 : 1800;
@@ -78,15 +103,6 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
       };
     }
   }, [autoplay, rotation, controls, faceCount]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsScreenSizeSm(window.innerWidth <= 640);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   // Pause on hover with smooth transition
   const handleMouseEnter = (): void => {
