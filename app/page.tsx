@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Hyperspeed from '@Hyperspeed';
 import SplitText from '@blocks/TextAnimations/SplitText/SplitText';
 import DecryptedText from '@blocks/TextAnimations/DecryptedText/DecryptedText';
+import RollingGallery from '@blocks/Components/RollingGallery/RollingGallery';
 import Image from 'next/image';
 
 const MotionCard = motion(Card);
@@ -77,7 +78,18 @@ export default function Home() {
     'Vaundyライブ参戦',
     '美味しいコーヒーを探してカフェ巡り',
     '旅行（最近は北海道、沖縄に行きました）',
-    'アニメ（呪術、ヒロアカ、水星の魔女など様々）',
+    'アニメ（呪術、ヒロアカ、水星の魔女など）',
+  ];
+
+  const photos = [
+    '/images/IMG_8487.png',
+    '/images/IMG_9108.png',
+    '/images/IMG_9119.png',
+    '/images/IMG_9213.png',
+    '/images/IMG_9353.png',
+    '/images/IMG_9413.png',
+    '/images/IMG_9542.png',
+    '/images/IMG_9617.png',
   ];
 
   const containerVariants = {
@@ -337,6 +349,31 @@ export default function Home() {
                 </motion.div>
               ))}
             </Flex>
+          </MotionCard>
+
+          {/* フォトギャラリーセクション */}
+          <MotionCard
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            transition={{ delay: 1.2 }}
+            style={{ 
+              background: 'rgba(17, 17, 19, 0.7)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              overflow: 'hidden'
+            }}
+          >
+            <MotionHeading size="6" mb="2" variants={itemVariants} style={{ color: 'white' }}>
+              フォトギャラリー
+            </MotionHeading>
+            <Box style={{ margin: '-200px -50px -200px' }}>
+              <RollingGallery
+                images={photos}
+                autoplay={true}
+                pauseOnHover={true}
+              />
+            </Box>
           </MotionCard>
         </Flex>
       </Container>
