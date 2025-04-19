@@ -2,6 +2,9 @@
 	Installed from https://reactbits.dev/ts/default/
 */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @next/next/no-img-element */
+
 'use client';
 
 import React, { useEffect, useRef, useState } from "react";

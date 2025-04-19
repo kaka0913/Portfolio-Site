@@ -2,6 +2,8 @@
 	Installed from https://reactbits.dev/ts/default/
 */
 
+/* eslint-disable @typescript-eslint/prefer-as-const */
+
 import { useEffect, useState, useRef, ReactNode } from "react";
 import { motion } from "framer-motion";
 
