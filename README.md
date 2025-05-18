@@ -1,8 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ポートフォリオサイト
 
-## Getting Started
+このリポジトリは、 [Next.js](https://nextjs.org)を使用したポートフォリオサイトのソースコードです。
 
-First, run the development server:
+プロジェクトは [`create-next-app`](<https://www.google.com/search?q=%5Bhttps://nextjs.org/docs/app/api-reference/cli/create-next-app%5D(https://nextjs.org/docs/app/api-reference/cli/create-next-app)>) を使用して初期設定しましたしました。
+
+## デプロイについて
+
+このサイトは [Vercel Platform](https://vercel.com) を利用してホストしています。
+
+現在公開しているポートフォリオサイトは、以下のURLでご覧いただけます。
+
+## **サイトURL**
+
+[https://www.kabu-engineer.com](https://www.kabu-engineer.com)
+
+## 開発環境の準備
+
+リポジトリをクローンしてディレクトリに移動してから、以下のコマンドで開発サーバーを起動します。
 
 ```bash
 npm run dev
@@ -14,23 +28,18 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 本番環境の準備
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+本番ビルドを作成
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+本番ビルドでサーバーを起動
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ブラウザで [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) を開くと、開発中のサイトを確認できます。

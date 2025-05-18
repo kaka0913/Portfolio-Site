@@ -15,69 +15,86 @@ const MotionHeading = motion(Heading);
 export default function Home() {
   const news = [
     {
-      date: '2025年4月',
-      content: 'Try! Swift 2025年にスタッフとして参加'
+      date: "2025年4月",
+      content: "Try! Swift 2025年にスタッフとして参加",
     },
     {
-      date: '2025年3月',
-      content: '内定者インターン就業開始'
+      date: "2025年3月",
+      content: "DeNA内定者インターン就業開始",
     },
     {
-      date: '2025年2月',
-      content: '学生IT団体watnowの副代表を退任'
+      date: "2025年2月",
+      content: "学生IT団体watnowの副代表を退任",
     },
     {
-      date: '2024年11月',
-      content: 'watnow秋プロジェクト最優秀賞受賞'
+      date: "2024年11月",
+      content: "watnow秋プロジェクト最優秀賞受賞 👑",
     },
     {
-      date: '2024年8月',
-      content: 'iOSDC Japan 2024に参加'
+      date: "2024年8月",
+      content: "iOSDC Japan 2024に参加",
     },
     {
-      date: '2024年2月',
-      content: '学生IT団体watnowの副代表に就任'
+      date: "2024年2月",
+      content: "学生IT団体watnowの副代表に就任",
     },
     {
-      date: '2023年12月',
-      content: '技育CAMPアドバンスvol.4 副大賞受賞'
+      date: "2023年12月",
+      content: "技育CAMPアドバンスvol.4 副大賞受賞 👑",
     },
     {
-      date: '2023年10月',
-      content: '技育キャンプキャラバンハッカソン大阪 優秀賞受賞'
+      date: "2023年10月",
+      content: "技育キャンプキャラバンハッカソン大阪 優秀賞受賞 👑",
     },
     {
-      date: '2023年8月',
-      content: '関西ビギナーズハッカソンvol2 最優秀賞受賞'
+      date: "2023年8月",
+      content: "関西ビギナーズハッカソンvol2 最優秀賞受賞 👑",
     },
     {
-      date: '2023年4月',
-      content: '学生IT団体watnowに参加'
+      date: "2023年4月",
+      content: "学生IT団体watnowに参加しFlutterを学ぶ",
+    },
+    {
+      date: "2022年4月",
+      content: "立命館大学情報理工学部に入学し情報系の学習を開始",
     },
   ];
 
   const skills = [
     {
-      name: 'Swift',
-      icon: '/icons/swift.png',
+      name: "Swift",
+      icon: "/icons/swift.png",
     },
     {
-      name: 'Flutter',
-      icon: '/icons/flutter.png',
+      name: "Flutter",
+      icon: "/icons/flutter.png",
     },
     {
-      name: 'GO',
-      icon: '/icons/go.png',
-    }
+      name: "GO",
+      icon: "/icons/go.png",
+    },
+    {
+      name: "React",
+      icon: "/icons/react.png",
+    },
+  ];
+
+  const features = [
+    "・日本で80人の珍しめの苗字",
+    "・大学からプログラムを始めてモバイルアプリを中心に開発に取り組む",
+    "・大学3年生の頃には学生IT団体watnowの副代表として年間計画を立案し団体を運営",
+    "・複数の企業での実務インターン経験あり",
+    "・現在はDeNAの内定を承諾し内定者インターンとして就業中",
+    "・MBTI: 幹部 (ESTJ-T)",
   ];
 
   const hobbies = [
-    'ツーリング',
-    '料理',
-    'Vaundyライブ参戦',
-    '美味しいコーヒーを探してカフェ巡り',
-    '旅行（最近は北海道、沖縄に行きました）',
-    'アニメ（呪術、ヒロアカ、ジークアクス、ラザロなど）',
+    "ツーリング（ #YZF-R15）",
+    "ラジオ（ #霜降り明星のANN）",
+    "ライブ参戦（ #髭ダン #King Nue #Vaundy #Tele）",
+    "美味しいコーヒーを探してカフェ巡り（#滋賀、#河原町）",
+    "旅行（ #沖縄 #北海道 #広島 #金沢 #静岡）",
+    "アニメ（ #呪術 #ヒロアカ #ジークアクス #ラザロ）",
   ];
 
   const photos = [
