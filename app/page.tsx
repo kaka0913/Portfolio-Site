@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import Hyperspeed from '@Hyperspeed';
 import SplitText from '@blocks/TextAnimations/SplitText/SplitText';
 import DecryptedText from '@blocks/TextAnimations/DecryptedText/DecryptedText';
-import RollingGallery from '@blocks/Components/RollingGallery/RollingGallery';
 import Image from 'next/image';
 
 const MotionCard = motion(Card);
@@ -80,12 +79,12 @@ export default function Home() {
   ];
 
   const features = [
-    "・日本で80人の珍しめの苗字",
-    "・大学からプログラムを始めてモバイルアプリを中心に開発に取り組む",
-    "・大学3年生の頃には学生IT団体watnowの副代表として年間計画を立案し団体を運営",
-    "・複数の企業での実務インターン経験あり",
-    "・現在はDeNAの内定を承諾し内定者インターンとして就業中",
-    "・MBTI: 幹部 (ESTJ-T)",
+    "日本で80人の珍しめの苗字",
+    "大学からプログラムを始めてモバイルアプリを中心に開発に取り組む",
+    "大学3年生の頃には学生IT団体watnowの副代表として年間計画を立案し団体を運営",
+    "複数の企業での実務インターン経験あり",
+    "現在はDeNAの内定を承諾し内定者インターンとして就業中",
+    "MBTI: 幹部 (ESTJ-T)",
   ];
 
   const hobbies = [
@@ -302,6 +301,36 @@ export default function Home() {
                       <Text size="2" style={{ color: 'white' }}>{skill.name}</Text>
                     </Flex>
                   </Card>
+                </motion.div>
+              ))}
+            </Flex>
+          </MotionCard>
+
+          {/* 特徴セクション */}
+          <MotionCard
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            transition={{ delay: 0.9 }}
+            style={{ 
+              background: 'rgba(17, 17, 19, 0.7)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}
+          >
+            <MotionHeading size="6" mb="4" variants={itemVariants} style={{ color: 'white' }}>
+              特徴
+            </MotionHeading>
+            <Flex direction="column" gap="3">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ x: 10 }}
+                >
+                  <Text style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                    • {feature}
+                  </Text>
                 </motion.div>
               ))}
             </Flex>
