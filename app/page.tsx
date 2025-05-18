@@ -99,13 +99,14 @@ export default function Home() {
 
   const photos = [
     '/images/IMG_8487.png',
-    '/images/IMG_9108.png',
-    '/images/IMG_9119.png',
-    '/images/IMG_9213.png',
-    '/images/IMG_9353.png',
     '/images/IMG_9413.png',
+    '/images/IMG_9108.png',
+    '/images/IMG_9213.png',
+    '/images/IMG_9119.png',
+    '/images/IMG_9353.png',
     '/images/IMG_9542.png',
     '/images/IMG_9617.png',
+    '/images/IMG_9941.png',
   ];
 
   const containerVariants = {
@@ -235,7 +236,7 @@ export default function Home() {
               </MotionHeading>
               <motion.div variants={itemVariants}>
                 <DecryptedText
-                  text="立命館大学4年生 情報理工学部情報理工学科"
+                  text="立命館大学4年生 情報理工学部情報理工学科 SAコース"
                   speed={150}
                   maxIterations={20}
                   animateOn="view"
@@ -383,12 +384,26 @@ export default function Home() {
             <MotionHeading size="6" mb="2" variants={itemVariants} style={{ color: 'white' }}>
               フォトギャラリー
             </MotionHeading>
-            <Box style={{ margin: '-200px -50px -200px' }}>
-              <RollingGallery
-                images={photos}
-                autoplay={true}
-                pauseOnHover={true}
-              />
+            <Box style={{ padding: '2rem 0' }}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
+                  gap: '1.5rem',
+                  justifyItems: 'center',
+                }}
+              >
+                {photos.map((src, idx) => (
+                  <div key={idx} style={{ width: '100%', maxWidth: 250, aspectRatio: '1/1', position: 'relative', borderRadius: 12, overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.2)' }}>
+                    <Image
+                      src={src}
+                      alt={`photo-${idx}`}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                ))}
+              </div>
             </Box>
           </MotionCard>
         </Flex>
