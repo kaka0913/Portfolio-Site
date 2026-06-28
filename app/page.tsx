@@ -1,15 +1,16 @@
 'use client';
 
 import { Container, Heading, Text, Card, Flex, Link, Box } from '@radix-ui/themes';
-import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
+import { ArrowRightIcon, GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Hyperspeed from '@Hyperspeed';
 import SplitText from '@blocks/TextAnimations/SplitText/SplitText';
 import DecryptedText from '@blocks/TextAnimations/DecryptedText/DecryptedText';
 import Image from 'next/image';
+import NextLink from 'next/link';
 
-const MotionCard = motion(Card);
-const MotionHeading = motion(Heading);
+const MotionCard = motion.create(Card);
+const MotionHeading = motion.create(Heading);
 
 export default function Home() {
   const news = [
@@ -134,7 +135,12 @@ export default function Home() {
 
   return (
     <>
-      <div style={{ height: '100vh', position: 'relative' }}>
+      <div className="portfolio-hero" style={{ height: '100vh', position: 'relative' }}>
+        <header className="portfolio-header">
+          <NextLink className="portfolio-blog-link" href="/blog">
+            Blog <ArrowRightIcon />
+          </NextLink>
+        </header>
         <Hyperspeed
           effectOptions={{
             onSpeedUp: () => { },

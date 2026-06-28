@@ -43,3 +43,16 @@ npm start
 ```
 
 ブラウザで [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) を開くと、開発中のサイトを確認できます。
+
+## Blog
+
+BlogはNext.js App Routerで静的生成されます。
+
+- 一覧: `/blog`
+- 記事: `/blog/[slug]`
+- RSS: `/rss.xml`
+- サイトマップ: `/sitemap.xml`
+
+記事を追加・編集する場合は、`app/blog/posts.ts` の `posts` 配列を更新します。各記事の `slug` はURLとして使用され、`generateStaticParams` によりビルド時にHTMLが生成されます。
+
+公開URLは既定で `https://www.kabu-engineer.com` です。Preview環境などで変更する場合は、`NEXT_PUBLIC_SITE_URL` を設定してください。

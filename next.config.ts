@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@blocks": path.resolve(__dirname, "src/blocks"),
-      "@Hyperspeed": path.resolve(__dirname, "/src/blocks/Backgrounds/Hyperspeed/Hyperspeed"),
+      "@Hyperspeed": path.resolve(__dirname, "src/blocks/Backgrounds/Hyperspeed/Hyperspeed"),
     };
     return config;
   },
