@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
 import { siteConfig } from '@/lib/site';
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -44,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={inter.className} style={{ margin: 0, padding: 0, backgroundColor: '#111113' }}>
+      <body style={{ margin: 0, padding: 0, backgroundColor: '#111113' }}>
         <Theme appearance="dark" accentColor="blue" radius="medium">
           {children}
         </Theme>

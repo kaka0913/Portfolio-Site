@@ -21,6 +21,7 @@ body {
   background-color: var(--background-color);
   color: rgb(var(--foreground-rgb));
   min-height: 100vh;
+  font-family: "Inter", "Hiragino Sans", "Yu Gothic", "YuGothic", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .portfolio-header {
