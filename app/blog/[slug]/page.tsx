@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 import CodeBlock from "../CodeBlock";
 import { getPost, posts } from "../posts";
 
@@ -56,10 +56,12 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <>
       <header className="blog-header article-header">
-        <Link className="blog-brand" href="/">
-          <span>YUICHIRO KABUTAN</span>
-        </Link>
-        <Link className="back-link" href="/blog"><ArrowLeftIcon /> All articles</Link>
+        <nav aria-label="記事ナビゲーション">
+          <Link className="blog-nav-link" href="/blog">All articles</Link>
+          <Link className="blog-nav-link blog-nav-arrow" href="/">
+            Portfolio <ArrowRightIcon />
+          </Link>
+        </nav>
       </header>
 
       <main className="article-page">

@@ -137,7 +137,6 @@ export default function Home() {
     <>
       <div className="portfolio-hero" style={{ height: '100vh', position: 'relative' }}>
         <header className="portfolio-header">
-          <span>YUICHIRO KABUTAN</span>
           <NextLink className="portfolio-blog-link" href="/blog">
             Blog <ArrowRightIcon />
           </NextLink>

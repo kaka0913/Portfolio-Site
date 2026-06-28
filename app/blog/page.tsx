@@ -28,12 +28,10 @@ export default function BlogPage() {
   return (
     <>
       <header className="blog-header blog-home-header">
-        <Link className="blog-brand" href="/">
-          <span>YUICHIRO KABUTAN</span>
-        </Link>
         <nav aria-label="メインナビゲーション">
-          <Link className="blog-nav-link is-active" href="/blog">Blog</Link>
-          <Link className="blog-nav-link" href="/">Portfolio</Link>
+          <Link className="blog-nav-link blog-nav-arrow" href="/">
+            Portfolio <ArrowRightIcon />
+          </Link>
         </nav>
       </header>
 
