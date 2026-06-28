@@ -23,6 +23,62 @@ body {
   min-height: 100vh;
 }
 
+.portfolio-header {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 50%;
+  width: min(100% - 48px, 1240px);
+  height: 88px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.portfolio-blog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.portfolio-blog-link:hover {
+  color: #fff;
+}
+
+.portfolio-blog-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 180ms ease;
+}
+
+.portfolio-blog-link:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 800px) {
+  .portfolio-header {
+    width: min(100% - 32px, 1240px);
+    height: 72px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-blog-link,
+  .portfolio-blog-link svg {
+    transition: none;
+  }
+}
+
 #__next {
   background-color: var(--background-color);
   min-height: 100vh;
